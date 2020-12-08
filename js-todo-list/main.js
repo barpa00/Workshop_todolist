@@ -18,5 +18,14 @@ document.addEventListener('DOMContentLoaded',function(){
       li.remove()
     }
   }
- 
+  var hover = document.getElementsByTagName('li')
+  var i
+    // console.log(hover)
+  for(i=0;i<hover.length;i++){
+    (hover[i]).onclick = function(){
+      // hover[i].classList.toggle('.hover')
+      // console.log(this)
+      this.classList.toggle('checked')
+    }
+  }
 })
