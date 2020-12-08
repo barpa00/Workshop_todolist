@@ -34,6 +34,9 @@ ul li:nth-child(odd) {
 ul li:hover {
   background: #ddd;
 }
+/* .oo {
+  background-color: red;
+} */
 
 /* When clicked on, add a background color and strike out text */
 ul li.checked {
