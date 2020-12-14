@@ -4,28 +4,35 @@ document.addEventListener('DOMContentLoaded',function(){
   document.querySelector('#addBtn').addEventListener('click',function(){
     let li =document.createElement('li')
     li.innerHTML= document.getElementById('input').value+'<span class="close">x</span>'
-    // console.log( li.innerHTML)
+    li.setAttribute('draggable', true)
+    // document.querySelectorAll('li')[4].setAttribute('draggable', true)
+    console.log(li)
     document.querySelector('ul').appendChild(li)
     document.getElementById('input').value=''
+    
   })
+  var list = document.querySelector('ul')
   //deleted
-  var close = document.getElementsByClassName("close")
-  var i 
-  for(i=0;i<close.length;i++){
-    console.log(close[i])
-      close[i].onclick = function(){
-      var li = this.parentElement
-      li.remove()
+  list.addEventListener('click', function(ev) {
+      if(ev.target.className === 'close'){
+        var li = ev.target.parentElement
+        li.remove()
+      }
+    })
+  //hover
+  list.addEventListener('click', function(ev) {
+    if (ev.target.tagName === 'LI') {
+      ev.target.classList.toggle('checked')
     }
-  }
-  var hover = document.getElementsByTagName('li')
-  var i
-    // console.log(hover)
-  for(i=0;i<hover.length;i++){
-    (hover[i]).onclick = function(){
-      // hover[i].classList.toggle('.hover')
-      // console.log(this)
-      this.classList.toggle('checked')
-    }
-  }
+  })
+  //draggle
+  var li = list.querySelectorAll('li')
+  console.log(li)
+  li.forEach(function(o){
+    o.setAttribute('draggable', true)
+    console.log(o)
+  })
+  // list.addEventListener(forEach(function(o){
+  //   console.log(li)
+  // }))
 })
